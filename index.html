@@ -4,16 +4,20 @@
         <meta charset="utf-8">
         <title>Calculator by Austin Walker</title>
         <link rel="stylesheet" href="./styles.min.css" media="screen" title="no title">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     </head>
     <body>
         <section>
 
             <div id="calculator">
-							<div id="header">
-								<h1>Walker Instruments</h1>
-								<h2>JavaScript-Powered Calculator</h2>
+							<div class="revert">
+								Reset Buttons
 							</div>
+                <div id="header">
+                    <h1>Walker Instruments</h1>
+                    <h2>JavaScript-Powered Calculator</h2>
+                </div>
                 <!-- Screen and clear key -->
                 <div class="top">
                     <span class="clear">C</span>
@@ -22,28 +26,36 @@
                     </div>
 
                 </div>
+                <!-- <div id="container">
+                    <div class="box" id="box1">Drag and throw me</div>
+                    <div class="box" id="box2" style="left:392px; background-color:red;">Drag and throw me too</div>
+                </div> -->
 
                 <div class="keys">
                     <!-- operators and other keys -->
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span class="operator">+</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span class="operator">-</span>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span class="operator">÷</span>
-                    <span>0</span>
-                    <span>.</span>
-                    <span class="eval">=</span>
-                    <span class="operator">x</span>
+                    <span class="key">7</span>
+                    <span class="key">8</span>
+                    <span class="key">9</span>
+                    <span class="operator key">+</span>
+                    <span class="key">4</span>
+                    <span class="key">5</span>
+                    <span class="key">6</span>
+                    <span class="operator key">-</span>
+                    <span class="key">1</span>
+                    <span class="key">2</span>
+                    <span class="key">3</span>
+                    <span class="operator key">÷</span>
+                    <span class="key">0</span>
+                    <span class="key">.</span>
+                    <span class="eval key">=</span>
+                    <span class="operator key">x</span>
                 </div>
             </div>
+
         </section>
     </body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="./calculator.js"></script>
+    <script type="text/javascript" src="./draggable.js"></script>
 </html>

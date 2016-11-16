@@ -9,6 +9,9 @@ function numberWithCommas(x) {
     return parts.join(".");
 }
 
+
+
+
 // Add onclick event to all the keys and perform operations
 for(var i = 0; i < keys.length; i++) {
 	keys[i].onclick = function(e) {

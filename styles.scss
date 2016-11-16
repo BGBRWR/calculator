@@ -4,6 +4,7 @@
     box-sizing: border-box;
     /* Better text styling */
     font-family: Arial, sans-serif;
+    transition: all 0.2s ease-in-out;
 }
 $clear: #E4572E;
 $equalsHover: #06A77D;
@@ -20,9 +21,12 @@ html {
 }
 
 body {
-    background: #4DA0B0; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #4DA0B0 , #D39D38); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #4DA0B0 , #D39D38); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #4DA0B0;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #4DA0B0 , $background);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #4DA0B0 , $background);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     height: 100%;
     display: flex;
@@ -34,6 +38,15 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.revert {
+    position: relative;
+    display: inline;
+    border-radius: 5px;
+    width: 10vw;
+    text-align: center;
+    padding: 2px 7px;
 }
 /* Using box shadows to create 3D effects */
 #calculator {
@@ -50,11 +63,15 @@ section {
     text-align: center;
     color: $equals;
     margin-bottom: 2vh;
+    display: inline;
 }
 
 h1 {
     padding-bottom: 1vh;
     font-size: 2.5vh;
+}
+h2 {
+  padding-bottom: 1vh;
 }
 /* Top portion */
 .top {
@@ -93,7 +110,14 @@ h1 {
     overflow: hidden;
 }
 /* Applying same to the keys */
+.keys {
+    z-index: 10;
+    overflow: visible;
+    transition: all 1s ease-in-out;
+}
+
 .keys span {
+    z-index: 20;
     height: 6vh;
     line-height: 6vh;
 }
@@ -114,7 +138,6 @@ h1 {
     /* prevent selection of text inside keys */
     user-select: none;
     /* Smoothing out hover and active states using css3 transitions */
-    transition: all 0.2s ease;
     font-size: 4vh;
 }
 /* Remove right margins from operator keys */
@@ -122,6 +145,11 @@ h1 {
 .keys span.operator {
     background: #FFF0F5;
     margin-right: 0;
+}
+
+.revert {
+    background: $background;
+    box-shadow: 0 2px darken($background, 7%);
 }
 
 .keys span.eval {
@@ -153,6 +181,11 @@ h1 {
     box-shadow: 0 4px $clear;
     color: white;
 }
+
+.revert:hover {
+    background: lighten($background, 7%);
+    box-shadow: 0 2px $background;
+}
 /* Simulating "pressed" effect on active state of the keys by removing the box-shadow and moving the keys down a bit */
 .keys span:active {
     box-shadow: 0 0 $keys;
@@ -168,6 +201,11 @@ h1 {
 .top span.clear:active {
     top: 4px;
     box-shadow: 0 0 $clear;
+}
+.revert:active {
+    box-shadow: 0 0 $background;
+    top: 2px;
+    border-radius: 5px;
 }
 @media all and (min-width: 1px) {
     .keys span {
