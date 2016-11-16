@@ -15,9 +15,11 @@ function numberWithCommas(x) {
 // Add onclick event to all the keys and perform operations
 for(var i = 0; i < keys.length; i++) {
 	keys[i].onclick = function(e) {
+
+
 		// Get the input and button values
 		var input = document.querySelector('.screen');
-		var inputVal = input.innerHTML;
+		var inputVal = input.innerHTML.replace(/,/gi, "");
 		var btnVal = this.innerHTML;
 
 		// If clear key is pressed, erase everything
@@ -28,6 +30,7 @@ for(var i = 0; i < keys.length; i++) {
 
 		// If eval key is pressed, calculate and display the result
 		else if(btnVal == '=') {
+
 			var equation = inputVal;
 			var lastChar = equation[equation.length - 1];
 
@@ -41,7 +44,8 @@ for(var i = 0; i < keys.length; i++) {
 			if(equation)
 				// input.innerHTML = numberWithCommas(eval(equation));
 				input.innerHTML = eval(equation);
-				input.innerHTML = numberWithCommas(input.innerHTML);
+        input.innerHTML = numberWithCommas(input.innerHTML);
+        // $(".display").textfill();
 
 			decimalAdded = false;
 		}
@@ -58,7 +62,6 @@ for(var i = 0; i < keys.length; i++) {
 			// Operator is clicked
 			// Get the last character from the equation
 			var lastChar = inputVal[inputVal.length - 1];
-
 			// Only add operator if input is not empty and there is no operator at the last
 			if(inputVal != '' && inputVal.indexOf('.') != inputVal.length - 1 && operators.indexOf(lastChar) == -1 )
 				input.innerHTML += btnVal;
