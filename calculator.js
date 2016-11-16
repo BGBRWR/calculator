@@ -60,7 +60,7 @@ for(var i = 0; i < keys.length; i++) {
 			var lastChar = inputVal[inputVal.length - 1];
 
 			// Only add operator if input is not empty and there is no operator at the last
-			if(inputVal != '' && operators.indexOf(lastChar) == -1)
+			if(inputVal != '' && inputVal.indexOf('.') != inputVal.length - 1 && operators.indexOf(lastChar) == -1 )
 				input.innerHTML += btnVal;
 
 			// Allow minus if the string is empty
